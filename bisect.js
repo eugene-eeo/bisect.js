@@ -59,22 +59,7 @@
     return res;
   }
 
-  function solve(f, config) {
-    var iter = config.iterations || 100;
-    var context = {
-      f: f,
-      ranges: config.ranges || [[-100, 100]],
-      roots: config.roots || {}
-    };
-    var i;
-    for (i = 0; i < iter; i++) {
-      bisect(context);
-    }
-    return rootsOf(context);
-  }
-
   // Finally, export the functions
   global.bisect = bisect;
-  bisect.solve = solve;
-  bisect.rootsOf = rootsOf;
+  global.rootsOf = rootsOf;
 })(this);
